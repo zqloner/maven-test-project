@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  *
  * @Description: 基于fastjson封装的json转换工具类
- * @author yg
+ * @author //原文地址：https://blog.csdn.net/qq_37749055/article/details/102669908
  * @date 2019年10月17日
  *
  */

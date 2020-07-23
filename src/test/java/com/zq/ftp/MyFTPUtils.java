@@ -1,4 +1,4 @@
-package com.zq.ftp.util;
+package com.zq.ftp;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.net.ftp.FTPClient;
@@ -14,7 +14,7 @@ import java.util.Date;
  * @Title: MyFTPUtils
  * @Description:
  * @Company: 盟固利
- * @author: 张奇
+ * @author: 张奇   //    原文链接：https://blog.csdn.net/qq_32711309/article/details/83782201
  * @date: ceate in 2020/5/24 13:55
  */
 public class MyFTPUtils {
@@ -35,7 +35,7 @@ public class MyFTPUtils {
      */
     public void initFtpClient() {
         ftpClient = new FTPClient();
-        ftpClient.setControlEncoding("utf-8");
+        ftpClient.setControlEncoding("GBK");
         try {
             System.out.println("connecting...ftp服务器:" + this.hostname + ":" + this.port);
             ftpClient.connect(hostname, port); //连接ftp服务器
@@ -184,7 +184,7 @@ public class MyFTPUtils {
             String path = "";
             String paths = "";
             while (true) {
-                String subDirectory = new String(remote.substring(start, end).getBytes("GBK"), "iso-8859-1");
+                String subDirectory = new String(remote.substring(start, end).getBytes("GBK"), "GBK");
                 path = path + "/" + subDirectory;
                 if (!existFile(path)) {
                     if (makeDirectory(subDirectory)) {
