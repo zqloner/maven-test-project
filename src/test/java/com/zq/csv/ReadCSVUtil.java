@@ -1,9 +1,8 @@
 package com.zq.csv;
 
 
-
-import com.csvreader.CsvReader;
-import com.csvreader.CsvWriter;
+import org.jumpmind.symmetric.csv.CsvReader;
+import org.jumpmind.symmetric.csv.CsvWriter;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
