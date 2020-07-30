@@ -1,18 +1,33 @@
 package com.zq;
 
+import cn.hutool.core.convert.Convert;
+import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.lang.Console;
+import cn.hutool.core.thread.ThreadUtil;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.zq.fastjson.FastJsonUtils;
 import com.zq.ftp.MyFTPUtils;
 import com.zq.httpclient.HttpClientUtil;
+import com.zq.pdf.PDFUtil;
+import com.zq.pdf.newPdfUtil.MyHeaderFooter;
+import com.zq.pdf.newPdfUtil.PdfReport;
+import com.zq.pdf.newPdfUtil.Watermark;
 import com.zq.sftp.MySFTPUtils;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
+import java.util.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
 
 /**
  * @Title: MyTest
@@ -22,7 +37,7 @@ import java.util.Map;
  * @date: ceate in 2020/5/22 17:40
  */
 public class MyTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 //        mySftpTest();
 //        myFtpTest();
 //        myHttpClientTest();
@@ -59,7 +74,7 @@ public class MyTest {
     }
 
     private static void myFtpTest() {
-        MyFTPUtils ftp =new MyFTPUtils();
+        MyFTPUtils ftp = new MyFTPUtils();
         //ftp.uploadFile("ftpFile/data", "123.docx", "E://123.docx");
         //ftp.downloadFile("ftpFile/data", "123.docx", "F://");
         //ftp.deleteFile("ftpFile/data", "123.docx");
