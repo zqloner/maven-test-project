@@ -149,7 +149,7 @@ public class MySFTPUtils {
      * @author Kimi Kong
      * @date 2016年8月26日下午3:52:10
      */
-    private void createDir(String filepath, ChannelSftp sftp) {
+    public void createDir(String filepath, ChannelSftp sftp) {
         boolean bcreated;
         boolean bparent;
         File file = new File(filepath);
